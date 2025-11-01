@@ -8,162 +8,22 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include "bst.h"
 
 using namespace std;
 
-class BST {
-private:
-    struct Node {
-        int key;
-        Node* left;
-        Node* right;
-        Node(int k) : key(k), left(nullptr), right(nullptr) {}
-    };
-    Node* root;
-
-    Node* insert(Node* node, int key) {
-        if (!node) return new Node(key);
-        if (key < node->key)
-            node->left = insert(node->left, key);
-        else if (key > node->key)
-            node->right = insert(node->right, key);
-        return node;
-    }
-
-    Node* remove(Node* node, int key) {
-        if (!node) return nullptr;
-        if (key < node->key) node->left = remove(node->left, key);
-        else if (key > node->key) node->right = remove(node->right, key);
-        else {
-            if (!node->left) {
-                Node* r = node->right;
-                delete node;
-                return r;
-            }
-            else if (!node->right) {
-                Node* l = node->left;
-                delete node;
-                return l;
-            }
-            else {
-                Node* succParent = node;
-                Node* succ = node->right;
-                while (succ->left) {
-                    succParent = succ;
-                    succ = succ->left;
-                }
-                node->key = succ->key;
-                node->right = remove(node->right, succ->key);
-            }
-        }
-        return node;
-    }
-
-    void clear(Node* node) {
-        if (!node) return;
-        clear(node->left);
-        clear(node->right);
-        delete node;
-    }
-
-    void preorder(Node* node, vector<int>& out) const {
-        if (!node) return;
-        out.push_back(node->key);
-        preorder(node->left, out);
-        preorder(node->right, out);
-    }
-    void inorder(Node* node, vector<int>& out) const {
-        if (!node) return;
-        inorder(node->left, out);
-        out.push_back(node->key);
-        inorder(node->right, out);
-    }
-    void postorder(Node* node, vector<int>& out) const {
-        if (!node) return;
-        postorder(node->left, out);
-        postorder(node->right, out);
-        out.push_back(node->key);
-    }
-
-    bool findPath(Node* node, int key, vector<int>& path) const {
-        if (!node) return false;
-        path.push_back(node->key);
-        if (node->key == key) return true;
-        if (key < node->key) {
-            if (findPath(node->left, key, path)) return true;
-        }
-        else {
-            if (findPath(node->right, key, path)) return true;
-        }
-        path.pop_back();
-        return false;
-    }
-
-public:
-    BST() : root(nullptr) {}
-    ~BST() { clearTree(); }
-
-    void insert(int key) {
-        root = insert(root, key);
-    }
-
-    void removeKey(int key) {
-        root = remove(root, key);
-    }
-    
-    void clearTree() {
-        clear(root);
-        root = nullptr;
-    }
-
-    vector<int> getPathTo(int key) const {
-        vector<int> path;
-        if (findPath(root, key, path)) return path;
-        return {};
-    }
-
-    bool isEmpty() const { return root == nullptr; }
-
-    vector<int> getPreorder() const {
-        vector<int> out; preorder(root, out); return out;
-    }
-    vector<int> getInorder() const {
-        vector<int> out; inorder(root, out); return out;
-    }
-    vector<int> getPostorder() const {
-        vector<int> out; postorder(root, out); return out;
-    }
-
-    static void printVectorTraversal(const vector<int>& v) {
-        if (v.empty()) { cout << "(brak)\n"; return; }
-        for (size_t i = 0; i < v.size(); ++i) {
-            if (i) cout << " ";
-            cout << v[i];
-        }
-        cout << "\n";
-    }
-
-};
-
-static void showMenu() {
-    cout << "====== Program: drzewo BST ======\n";
-    cout << "1. Dodaj element\n";
-    cout << "2. Usun element\n";
-    cout << "3. Usun cale drzewo\n";
-    cout << "4. Szukaj drogi do elementu\n";
-    cout << "5. Wyswietl drzewo (wybierz metode: preorder/inorder/postorder)\n";
-    cout << "0. Wyjscie\n";
-    cout << "Wybierz opcje: ";
-}
-
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
     BST tree;
     bool running = true;
     while (running) {
-        showMenu();
+        cout << "====== Program: drzewo BST ======\n";
+        cout << "1. Dodaj element\n";
+        cout << "2. Usun element\n";
+        cout << "3. Usun cale drzewo\n";
+        cout << "4. Szukaj drogi do elementu\n";
+        cout << "5. Wyswietl drzewo (wybierz metode: preorder/inorder/postorder)\n";
+        cout << "0. Wyjscie\n";
+        cout << "Wybierz opcje: ";
         int choice;
         if (!(cin >> choice)) {
             cin.clear();
@@ -177,7 +37,7 @@ int main() {
             cout << "Podaj liczbe do dodania: ";
             int v;
             cin >> v;
-            tree.insert(v);
+            tree.insertKey(v);
             cout << "Dodano " << v << ".\n";
             break;
         }
@@ -201,7 +61,7 @@ int main() {
             break;
         }
         case 4: {
-            cout << "Podaj klucz do wyszukania (sciezka): ";
+            cout << "Podaj klucz do wyszukania sciezki: ";
             int v;
             cin >> v;
             vector<int> path = tree.getPathTo(v);
