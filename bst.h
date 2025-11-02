@@ -112,4 +112,6 @@ public:
     vector<int> getInorder() const;
     vector<int> getPostorder() const;
     static void printVectorTraversal(const vector<int>& v);
+    void printTreeGraphic2(Node* node, int indent = 0, int indentStep = 4) const;
+    void printTreeGraphic(int indentStep = 4) const;
 };

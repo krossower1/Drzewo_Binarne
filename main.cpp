@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <cmath>
 #include <memory>
 #include <stack>
 #include <iterator>
@@ -14,6 +15,7 @@ using namespace std;
 
 int main() {
     BST tree;
+    int choice;
     bool running = true;
     while (running) {
         cout << "====== Program: drzewo BST ======\n";
@@ -22,16 +24,11 @@ int main() {
         cout << "3. Usun cale drzewo\n";
         cout << "4. Szukaj drogi do elementu\n";
         cout << "5. Wyswietl drzewo (wybierz metode: preorder/inorder/postorder)\n";
+        cout << "6. Wyswietl drzewo graficznie\n";
         cout << "0. Wyjscie\n";
         cout << "Wybierz opcje: ";
-        int choice;
-        if (!(cin >> choice)) {
-            cin.clear();
-            string dump;
-            getline(cin, dump);
-            cout << "Niepoprawne dane. Sprobuj ponownie.\n";
-            continue;
-        }
+        cin >> choice;
+        cout << "\n";
         switch (choice) {
         case 1: {
             cout << "Podaj liczbe do dodania: ";
@@ -95,16 +92,21 @@ int main() {
             else cout << "Niepoprawna metoda.\n";
             break;
         }
+        case 6: {
+            cout << "Grafika drzewa od lewej strony.\n";
+            tree.printTreeGraphic();
+            break;
+        }
         case 0: {
-            cout << "Koniec. Zamykam program.\n";
+            cout << "Koniec. \n";
             running = false;
             break;
         }
         default:
+            cin.clear();
             cout << "Nieznana opcja. Sprobuj ponownie.\n";
         }
         cout << "\n";
     }
-
     return 0;
 }
