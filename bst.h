@@ -101,6 +101,20 @@ private:
         return false;
     }
 
+    void serializePreorder(Node* node, ostream& out) const {
+        if (!node) {
+            // marker np. 0x0 jako bool false
+            char marker = 0;
+            out.write(&marker, sizeof(marker));
+            return;
+        }
+        char marker = 1;
+        out.write(&marker, sizeof(marker));
+        out.write(reinterpret_cast<const char*>(&node->key), sizeof(node->key));
+        serializePreorder(node->left, out);
+        serializePreorder(node->right, out);
+    }
+
 public:
     BST() : root(nullptr) {}
     ~BST() { clearTree(); }
@@ -114,4 +128,25 @@ public:
     static void printVectorTraversal(const vector<int>& v);
     void printTreeGraphic2(Node* node, int indent = 0, int indentStep = 4) const;
     void printTreeGraphic(int indentStep = 4) const;
+    bool saveTreeAsText(const string& filename) const {
+        ofstream fout(filename);
+        if (!fout) return false;
+        saveAsTextInorder(root, fout);
+        fout << "\n";
+        fout.close();
+        return true;
+    }
+    void saveAsTextInorder(Node* node, ostream& out) const {
+        if (!node) return;
+        saveAsTextInorder(node->left, out);
+        out << node->key << " ";
+        saveAsTextInorder(node->right, out);
+    }
+    bool serializeToBinary(const string& filename) const {
+        ofstream out(filename, ios::binary);
+        if (!out) return false;
+        serializePreorder(root, out);
+        out.close();
+        return true;
+    }
 };
