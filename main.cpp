@@ -26,6 +26,7 @@ int main() {
         cout << "4. Szukaj drogi do elementu\n";
         cout << "5. Wyswietl drzewo (wybierz metode: preorder/inorder/postorder)\n";
         cout << "6. Wyswietl drzewo graficznie\n";
+        cout << "7. Zapisz drzewo do pliku tekstowego\n";
         cout << "8. Zapisz drzewo do pliku binarnego\n";
         cout << "0. Wyjscie\n";
         cout << "Wybierz opcje: ";
@@ -97,6 +98,15 @@ int main() {
         case 6: {
             cout << "Grafika drzewa od lewej strony.\n";
             tree.printTreeGraphic();
+            break;
+        }
+        case 7: {
+            cout << "Podaj nazwe pliku tekstowego (np. tree.txt): ";
+            string filename;
+            cin >> filename;
+            if (TreeFileHandler::saveTextTree(tree, filename))
+                cout << "Zapisano do " << filename << " (inorder).\n";
+            else cout << "Blad zapisu do pliku.\n";
             break;
         }
         case 8: {
