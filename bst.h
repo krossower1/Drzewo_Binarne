@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
-#include <string>
+#include <cstring>
 #include <sstream>
 #include <algorithm>
 
@@ -101,18 +101,17 @@ private:
         return false;
     }
 
-    void serializePreorder(Node* node, ostream& out) const {
+    void serializePreorder(Node* node, ostream& fout) const {
         if (!node) {
-            // marker np. 0x0 jako bool false
             char marker = 0;
-            out.write(&marker, sizeof(marker));
+            fout.write(&marker, sizeof(marker));
             return;
         }
         char marker = 1;
-        out.write(&marker, sizeof(marker));
-        out.write(reinterpret_cast<const char*>(&node->key), sizeof(node->key));
-        serializePreorder(node->left, out);
-        serializePreorder(node->right, out);
+        fout.write(&marker, sizeof(marker));
+        fout.write(reinterpret_cast<const char*>(&(node->key)), sizeof(node->key));
+        serializePreorder(node->left, fout);
+        serializePreorder(node->right, fout);
     }
 
 public:
@@ -129,7 +128,7 @@ public:
     void printTreeGraphic2(Node* node, int indent = 0, int indentStep = 4) const;
     void printTreeGraphic(int indentStep = 4) const;
     bool saveTreeAsText(const string& filename) const {
-        ofstream fout(filename);
+        ofstream fout(filename, ios::out | ios::binary | ios::app);
         if (!fout) return false;
         saveAsTextInorder(root, fout);
         fout << "\n";
