@@ -10,6 +10,7 @@
 #include <sstream>
 #include <algorithm>
 #include "bst.h"
+#include "TreeFileHandler.h" //
 
 using namespace std;
 
@@ -25,6 +26,8 @@ int main() {
         cout << "4. Szukaj drogi do elementu\n";
         cout << "5. Wyswietl drzewo (wybierz metode: preorder/inorder/postorder)\n";
         cout << "6. Wyswietl drzewo graficznie\n";
+        cout << "7. Zapisz drzewo do pliku tekstowego\n";
+        cout << "8. Zapisz drzewo do pliku binarnego\n";
         cout << "0. Wyjscie\n";
         cout << "Wybierz opcje: ";
         cin >> choice;
@@ -97,6 +100,23 @@ int main() {
             tree.printTreeGraphic();
             break;
         }
+        case 7: {
+            cout << "Podaj nazwe pliku tekstowego (np. tree.txt): ";
+            string filename;
+            cin >> filename;
+            if (TreeFileHandler::saveTextTree(tree, filename))
+                cout << "Zapisano do " << filename << " (inorder).\n";
+            else cout << "Blad zapisu do pliku.\n";
+            break;
+        }
+        case 8: {
+            cout << "Podaj nazwe pliku binarnego (np. tree.bin): ";
+            string filename; cin >> filename;
+            if (TreeFileHandler::saveBinary(tree, filename))
+                cout << "Zapis binarny do " << filename << " zakonczony.\n";
+            else cout << "Blad zapisu binarnego.\n";
+            break;
+        }
         case 0: {
             cout << "Koniec. \n";
             running = false;
@@ -108,5 +128,5 @@ int main() {
         }
         cout << "\n";
     }
-    return 0;
+    return 1;
 }

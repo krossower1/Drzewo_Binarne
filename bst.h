@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
-#include <string>
+#include <cstring>
 #include <sstream>
 #include <algorithm>
 
@@ -101,6 +101,19 @@ private:
         return false;
     }
 
+    void serializePreorder(Node* node, ostream& fout) const {
+        if (!node) {
+            char marker = 0;
+            fout.write(&marker, sizeof(marker));
+            return;
+        }
+        char marker = 1;
+        fout.write(&marker, sizeof(marker));
+        fout.write(reinterpret_cast<const char*>(&(node->key)), sizeof(node->key));
+        serializePreorder(node->left, fout);
+        serializePreorder(node->right, fout);
+    }
+
 public:
     BST() : root(nullptr) {}
     ~BST() { clearTree(); }
@@ -114,4 +127,25 @@ public:
     static void printVectorTraversal(const vector<int>& v);
     void printTreeGraphic2(Node* node, int indent = 0, int indentStep = 4) const;
     void printTreeGraphic(int indentStep = 4) const;
+    bool saveTreeAsText(const string& filename) const {
+        ofstream fout(filename, ios::out | ios::binary | ios::app);
+        if (!fout) return false;
+        saveAsTextInorder(root, fout);
+        fout << "\n";
+        fout.close();
+        return true;
+    }
+    void saveAsTextInorder(Node* node, ostream& out) const {
+        if (!node) return;
+        saveAsTextInorder(node->left, out);
+        out << node->key << " ";
+        saveAsTextInorder(node->right, out);
+    }
+    bool serializeToBinary(const string& filename) const {
+        ofstream out(filename, ios::binary);
+        if (!out) return false;
+        serializePreorder(root, out);
+        out.close();
+        return true;
+    }
 };
