@@ -8,10 +8,12 @@
 #include <cstring>
 #include <sstream>
 #include <algorithm>
-
+#ifndef BST_H
+#define BST_H
 using namespace std;
 
 class BST {
+    friend class BSTFileHandler;
 private:
     struct Node {
         int key;
@@ -127,25 +129,7 @@ public:
     static void printVectorTraversal(const vector<int>& v);
     void printTreeGraphic2(Node* node, int indent = 0, int indentStep = 4) const;
     void printTreeGraphic(int indentStep = 4) const;
-    bool saveTreeAsText(const string& filename) const {
-        ofstream fout(filename, ios::out | ios::binary | ios::app);
-        if (!fout) return false;
-        saveAsTextInorder(root, fout);
-        fout << "\n";
-        fout.close();
-        return true;
-    }
-    void saveAsTextInorder(Node* node, ostream& out) const {
-        if (!node) return;
-        saveAsTextInorder(node->left, out);
-        out << node->key << " ";
-        saveAsTextInorder(node->right, out);
-    }
-    bool serializeToBinary(const string& filename) const {
-        ofstream out(filename, ios::binary);
-        if (!out) return false;
-        serializePreorder(root, out);
-        out.close();
-        return true;
-    }
+    BST::Node* getRoot() const { return root; }
 };
+
+#endif // BST_H
