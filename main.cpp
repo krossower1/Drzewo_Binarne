@@ -10,11 +10,13 @@
 #include <sstream>
 #include <algorithm>
 #include "bst.h"
+#include "bst_file_handler.h"   // *** NOWE ***
 
 using namespace std;
 
 int main() {
     BST tree;
+    BSTFileHandler fileHandler(tree);
     int choice;
     bool running = true;
     while (running) {
@@ -23,8 +25,15 @@ int main() {
         cout << "2. Usun element\n";
         cout << "3. Usun cale drzewo\n";
         cout << "4. Szukaj drogi do elementu\n";
-        cout << "5. Wyswietl drzewo (wybierz metode: preorder/inorder/postorder)\n";
+        cout << "5. Wyswietl drzewo - wybierz metode: \n"
+        "preorder - Root --> Left --> Right\n"
+        "inorder  - Left --> Root --> Right\n"
+        "postorder- Left --> Right --> Root\n";
         cout << "6. Wyswietl drzewo graficznie\n";
+        cout << "7. Zapisz drzewo do pliku binarnego\n"; // *** NOWE ***
+        cout << "8. Wczytanie drzewa z pliku binarnego\n"; // *** NOWE ***
+        cout << "9. Wczytanie drzewa z pliku tekstowego\n";
+        cout << "10. Zapisz drzewo do pliku tekstowego\n";
         cout << "0. Wyjscie\n";
         cout << "Wybierz opcje: ";
         cin >> choice;
@@ -97,16 +106,94 @@ int main() {
             tree.printTreeGraphic();
             break;
         }
+
+        // *** NOWE OPCJE DLA PLIKÓW ***
+        case 7: {
+            cout << "Podaj nazwe pliku binarnego do zapisu: ";
+            string fname;
+            cin >> fname;
+
+            cout << "Wybierz metode zapisu:\n";
+            cout << "1. Preorder (Root -> Left -> Right)\n";
+            cout << "2. Inorder (Left -> Root -> Right)\n";
+            cout << "3. Postorder (Left -> Right -> Root)\n";
+            int mode;
+            cin >> mode;
+
+            if (mode < 1 || mode > 3) {
+                cout << "Niepoprawna metoda zapisu.\n";
+                break;
+         }
+
+            fileHandler.saveToBinary(fname, mode);
+            cout << "Zapisano drzewo do pliku: " << fname << "\n";
+            break;
+}
+        // *** KONIEC NOWYCH OPCJI ***
+
+        // --- Wczytanie z pliku binarnego ---
+        case 8: {
+            cout << "Podaj nazwe pliku binarnego do wczytania: ";
+            string fname;
+            cin >> fname;
+            cout << "Czy wczytac do pustego drzewa? (t/n): ";
+            char c;
+            cin >> c;
+            if (c == 't' || c == 'T' || c == 'y' || c == 'Y') tree.clearTree();
+            fileHandler.loadFromBinary(fname);
+            break;
+            }        
+
+        
+            
+        // --- Wczytanie z pliku tekstowego ---
+        case 9: {
+            cout << "Podaj nazwe pliku tekstowego do wczytania: ";
+            string fname;
+            cin >> fname;
+            cout << "Czy wczytac do pustego drzewa? (t/n): ";
+            char c;
+            cin >> c;
+            bool append = !(c == 't' || c == 'T' || c == 'y' || c == 'Y');
+            fileHandler.loadFromText(fname, append);
+            break;
+        }
+
+        // case 10: zapis do pliku tekstowego z wyborem metody
+        case 10: {
+            cout << "Podaj nazwe pliku tekstowego do zapisu: ";
+            std::string fname;
+            cin >> fname;
+
+           
+            // podmenu wyboru metody
+            cout << "Wybierz metode zapisu drzewa:\n";
+            cout << "1. Preorder\n";
+            cout << "2. Inorder\n";
+            cout << "3. Postorder\n";
+            cout << "Twoj wybor: ";
+            int method;
+            cin >> method;
+
+            fileHandler.saveToText(fname, method);
+            cout << "Zapisano drzewo do pliku tekstowego: " << fname << "\n";
+            break;
+}      
+
+
         case 0: {
             cout << "Koniec. \n";
             running = false;
             break;
         }
-        default:
+        default: {
             cin.clear();
             cout << "Nieznana opcja. Sprobuj ponownie.\n";
         }
         cout << "\n";
+        }
+        
     }
     return 0;
+
 }

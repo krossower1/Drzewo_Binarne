@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: build all files",
+            "command": "C:/MinGW/bin/g++.exe",
+            "args": [
+                "-g",
+                "main.cpp",
+                "clearTree.cpp",
+                "getInorder.cpp",
+                "getPathTo.cpp",
+                "getPostorder.cpp",
+                "getPreorder.cpp",
+                "insertKey.cpp",
+                "printTreeGraphic.cpp",
+                "printTreeGraphic2.cpp",
+                "printVectorTraversal.cpp",
+                "removeKey.cpp",
+                "bst_file_handler.cpp",
+                "-o",
+                "main.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compile all BST source files together"
+        }
+    ]
+}

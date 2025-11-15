@@ -8,10 +8,12 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
-
+#ifndef BST_H
+#define BST_H
 using namespace std;
 
 class BST {
+    friend class BSTFileHandler;
 private:
     struct Node {
         int key;
@@ -114,4 +116,7 @@ public:
     static void printVectorTraversal(const vector<int>& v);
     void printTreeGraphic2(Node* node, int indent = 0, int indentStep = 4) const;
     void printTreeGraphic(int indentStep = 4) const;
+    BST::Node* getRoot() const { return root; }
 };
+
+#endif // BST_H
