@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
-#include <string>
+#include <cstring>
 #include <sstream>
 #include <algorithm>
 #ifndef BST_H
@@ -101,6 +101,19 @@ private:
         }
         path.pop_back();
         return false;
+    }
+
+    void serializePreorder(Node* node, ostream& fout) const {
+        if (!node) {
+            char marker = 0;
+            fout.write(&marker, sizeof(marker));
+            return;
+        }
+        char marker = 1;
+        fout.write(&marker, sizeof(marker));
+        fout.write(reinterpret_cast<const char*>(&(node->key)), sizeof(node->key));
+        serializePreorder(node->left, fout);
+        serializePreorder(node->right, fout);
     }
 
 public:
