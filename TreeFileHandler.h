@@ -1,5 +1,9 @@
 using namespace std;
 
+/**
+* @brief DELETE THIS
+*
+**/
 class TreeFileHandler {
 public:
     static bool saveBinary(const BST& tree, const string& filename) {

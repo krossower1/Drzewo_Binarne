@@ -10,6 +10,12 @@
 #include <algorithm>
 #include "bst.h"
 
+/**
+* @brief Inserts a key into a new node
+*
+**/
+
+
 void BST::insertKey(int key) {
     root = insert(root, key);
 }

@@ -3,8 +3,14 @@
 #include <iostream>
 #include <sstream>
 
+
 // Konstruktor
 BSTFileHandler::BSTFileHandler(BST& tree) : treeRef(tree) {}
+
+/**
+* @brief Write each node reccurently
+*
+**/
 
 // Rekursywny zapis w kolejności preorder
 void BSTFileHandler::saveNode(std::ofstream& out, BST::Node* node) const {
@@ -13,6 +19,11 @@ void BSTFileHandler::saveNode(std::ofstream& out, BST::Node* node) const {
     saveNode(out, node->left);
     saveNode(out, node->right);
 }
+
+/**
+* @brief Save tree to binary file
+*
+**/
 
 // Zapis do pliku binarnego
 void BSTFileHandler::saveToBinary(const std::string& filename, int mode) const {
@@ -41,6 +52,11 @@ void BSTFileHandler::saveToBinary(const std::string& filename, int mode) const {
               << "\n";
 }
 
+/**
+* @brief Load node from file and insert into tree
+*
+**/
+
 // Odczyt z pliku binarnego i wstawienie do drzewa
 void BSTFileHandler::loadNode(std::ifstream& in) {
     int key;
@@ -48,6 +64,11 @@ void BSTFileHandler::loadNode(std::ifstream& in) {
         treeRef.insertKey(key);  // dodaje elementy do istniejącego drzewa
     }
 }
+
+/**
+* @brief Read tree from binary file
+*
+**/
 
 // Wczytanie drzewa z pliku binarnego
 void BSTFileHandler::loadFromBinary(const std::string& filename) {
@@ -60,6 +81,11 @@ void BSTFileHandler::loadFromBinary(const std::string& filename) {
     in.close();
     std::cout << "Wczytano drzewo z pliku binarnego: " << filename << "\n";
 }
+
+/**
+* @brief Read tree from text file
+*
+**/
 
 // Wczytanie drzewa z pliku tekstowego
 void BSTFileHandler::loadFromText(const std::string& filename, bool append) {
@@ -83,6 +109,11 @@ void BSTFileHandler::loadFromText(const std::string& filename, bool append) {
     in.close();
     std::cout << "Wczytano drzewo z pliku tekstowego: " << filename << "\n";
 }
+
+/**
+* @brief Write tree to text file using preorder
+*
+**/
 
 // Zapis drzewa do pliku tekstowego w wybranej kolejności
 void BSTFileHandler::saveToText(const std::string& filename, int method) const {

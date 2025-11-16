@@ -12,6 +12,11 @@
 
 using namespace std;
 
+/**
+* @brief Clear the tree
+*
+**/
+
 void BST::clearTree() {
     clear(root);
     root = nullptr;

@@ -12,6 +12,11 @@
 
 using namespace std;
 
+/**
+* @brief Print a graphic depiction of the tree 
+*
+**/
+
 void BST::printTreeGraphic2(Node* node, int indent, int indentStep) const {
     if (!node) return;
     if (node->right) printTreeGraphic2(node->right, indent + indentStep, indentStep);

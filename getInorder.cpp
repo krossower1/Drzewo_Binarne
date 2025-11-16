@@ -12,6 +12,11 @@
 
 using namespace std;
 
+/**
+* @brief Returns the tree inorder
+*
+**/
+
 vector<int> BST::getInorder() const {
     vector<int> out;
     inorder(root, out);
