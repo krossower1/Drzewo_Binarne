@@ -12,6 +12,12 @@
 
 using namespace std;
 
+/**
+* @brief Returns the path to an element
+*
+**/
+
+
 vector<int> BST::getPathTo(int key) const {
     vector<int> path;
     if (findPath(root, key, path)) return path;

@@ -12,6 +12,12 @@
 
 using namespace std;
 
+/**
+* @brief Returns the tree preorder
+*
+**/
+
+
 vector<int> BST::getPreorder() const {
     vector<int> out;
     preorder(root, out);

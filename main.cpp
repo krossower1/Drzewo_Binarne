@@ -14,9 +14,15 @@
 
 using namespace std;
 
+/**
+* @brief The main body and interface
+*
+**/
+
 int main() {
     BST tree;
     BSTFileHandler fileHandler(tree);
+    int i = 25;
     int choice;
     bool running = true;
     int i = 1;

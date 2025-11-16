@@ -12,6 +12,11 @@
 
 using namespace std;
 
+/**
+* @brief Remove a node having a chosen key
+*
+**/
+
 void BST::removeKey(int key) {
     root = remove(root, key);
 }

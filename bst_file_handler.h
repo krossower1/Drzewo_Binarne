@@ -5,6 +5,11 @@
 #include <vector>
 #include "bst.h"
 
+/**
+* @brief Define the class responsible for all file manipulations
+*
+**/
+
 class BSTFileHandler {
 public:
     BSTFileHandler(BST& tree) : treeRef(tree) {};

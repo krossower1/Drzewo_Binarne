@@ -12,6 +12,11 @@
 #define BST_H
 using namespace std;
 
+/**
+* @brief Define the class holding each element of the BST, as well as the root node pointer methods and important variables.
+*
+**/
+
 class BST {
     friend class BSTFileHandler;
 private:

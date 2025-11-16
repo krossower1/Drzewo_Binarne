@@ -12,6 +12,11 @@
 
 using namespace std;
 
+/**
+* @brief Call to print a graphic depiction of the tree, display error message
+*
+**/
+
 void BST::printTreeGraphic(int indentStep) const {
     if (!root) { cout << "(drzewo puste)\n"; return; }
     printTreeGraphic2(root, 0, indentStep);
