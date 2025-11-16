@@ -12,6 +12,12 @@
 
 using namespace std;
 
+/**
+* @brief Returns the tree postorder
+*
+**/
+
+
 vector<int> BST::getPostorder() const {
     vector<int> out;
     postorder(root, out);
