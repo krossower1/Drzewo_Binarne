@@ -10,7 +10,7 @@
 #include <sstream>
 #include <algorithm>
 #include "bst.h"
-#include "bst_file_handler.h"   // *** NOWE ***
+#include "bst_file_handler.h" 
 
 using namespace std;
 
@@ -22,7 +22,6 @@ using namespace std;
 int main() {
     BST tree;
     BSTFileHandler fileHandler(tree);
-    int i = 25;
     int choice;
     bool running = true;
     int i = 1;
