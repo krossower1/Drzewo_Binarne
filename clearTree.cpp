@@ -12,6 +12,12 @@
 
 using namespace std;
 
+/**
+ * @brief Usuwa całe drzewo BST.
+ *
+ * Funkcja wywołuje prywatną metodę `clear(node*)`, która
+ * rekurencyjnie usuwa wszystkie węzły drzewa.
+ */
 void BST::clearTree() {
     clear(root);
     root = nullptr;

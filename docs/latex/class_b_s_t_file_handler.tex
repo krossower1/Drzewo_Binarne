@@ -1,0 +1,167 @@
+\doxysection{BSTFile\+Handler Class Reference}
+\hypertarget{class_b_s_t_file_handler}{}\label{class_b_s_t_file_handler}\index{BSTFileHandler@{BSTFileHandler}}
+
+
+Klasa obsługująca zapis i odczyt drzewa \doxylink{class_b_s_t}{BST} do/z plików.  
+
+
+
+
+{\ttfamily \#include $<$bst\+\_\+file\+\_\+handler.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_s_t_file_handler_a5f7db23671f60cfb8e0f4168f78bd983}{BSTFile\+Handler}} (\mbox{\hyperlink{class_b_s_t}{BST}} \&tree)
+\begin{DoxyCompactList}\small\item\em Konstruktor przyjmujący referencję do drzewa \doxylink{class_b_s_t}{BST}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_file_handler_a378db7aef81cfff0a004dd01a493fa8e}{save\+To\+Binary}} (const std\+::string \&filename) const
+\begin{DoxyCompactList}\small\item\em Zapis drzewa do pliku binarnego w kolejności preorder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_file_handler_aae5e2ecbe4cfbe1f1f37696217b56745}{save\+To\+Binary}} (const std\+::string \&filename, int mode) const
+\begin{DoxyCompactList}\small\item\em Zapis drzewa do pliku binarnego w wybranej kolejności. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_file_handler_ae47b8e85dd29fd2252f642c3f62e4939}{load\+From\+Binary}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Wczytanie drzewa z pliku binarnego (czyści drzewo przed wczytaniem). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_file_handler_aa36b7729e63123f4f5cf0b7c5dd5eb2e}{load\+From\+Text}} (const std\+::string \&filename, bool append=true)
+\begin{DoxyCompactList}\small\item\em Wczytanie drzewa z pliku tekstowego. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_file_handler_a98e0ee44f5d1f7e27d5798db7707c7a6}{save\+To\+Text}} (const std\+::string \&filename, int method) const
+\begin{DoxyCompactList}\small\item\em Zapis drzewa do pliku tekstowego w wybranej kolejności. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa obsługująca zapis i odczyt drzewa \doxylink{class_b_s_t}{BST} do/z plików. 
+
+\label{doc-constructors}
+\Hypertarget{class_b_s_t_file_handler_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_b_s_t_file_handler_a5f7db23671f60cfb8e0f4168f78bd983}\index{BSTFileHandler@{BSTFileHandler}!BSTFileHandler@{BSTFileHandler}}
+\index{BSTFileHandler@{BSTFileHandler}!BSTFileHandler@{BSTFileHandler}}
+\doxysubsubsection{\texorpdfstring{BSTFileHandler()}{BSTFileHandler()}}
+{\footnotesize\ttfamily \label{class_b_s_t_file_handler_a5f7db23671f60cfb8e0f4168f78bd983} 
+BSTFile\+Handler\+::\+BSTFile\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_t}{BST}} \&}]{tree}{}\end{DoxyParamCaption})}
+
+
+
+Konstruktor przyjmujący referencję do drzewa \doxylink{class_b_s_t}{BST}. 
+
+Konstruktor klasy \doxylink{class_b_s_t_file_handler}{BSTFile\+Handler}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & Referencja do obiektu \doxylink{class_b_s_t}{BST}\\
+\hline
+{\em tree} & Referencja do drzewa \doxylink{class_b_s_t}{BST}, na którym będą wykonywane operacje. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_b_s_t_file_handler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_b_s_t_file_handler_ae47b8e85dd29fd2252f642c3f62e4939}\index{BSTFileHandler@{BSTFileHandler}!loadFromBinary@{loadFromBinary}}
+\index{loadFromBinary@{loadFromBinary}!BSTFileHandler@{BSTFileHandler}}
+\doxysubsubsection{\texorpdfstring{loadFromBinary()}{loadFromBinary()}}
+{\footnotesize\ttfamily \label{class_b_s_t_file_handler_ae47b8e85dd29fd2252f642c3f62e4939} 
+void BSTFile\+Handler\+::load\+From\+Binary (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Wczytanie drzewa z pliku binarnego (czyści drzewo przed wczytaniem). 
+
+Wczytuje drzewo z pliku binarnego i wstawia elementy do drzewa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nazwa pliku\\
+\hline
+{\em filename} & Nazwa pliku binarnego. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_file_handler_aa36b7729e63123f4f5cf0b7c5dd5eb2e}\index{BSTFileHandler@{BSTFileHandler}!loadFromText@{loadFromText}}
+\index{loadFromText@{loadFromText}!BSTFileHandler@{BSTFileHandler}}
+\doxysubsubsection{\texorpdfstring{loadFromText()}{loadFromText()}}
+{\footnotesize\ttfamily \label{class_b_s_t_file_handler_aa36b7729e63123f4f5cf0b7c5dd5eb2e} 
+void BSTFile\+Handler\+::load\+From\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{bool}]{append}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+Wczytanie drzewa z pliku tekstowego. 
+
+Wczytuje liczby z pliku tekstowego i dodaje je do drzewa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nazwa pliku \\
+\hline
+{\em append} & Jeśli true, dodaje do istniejącego drzewa; jeśli false, czyści drzewo\\
+\hline
+{\em filename} & Nazwa pliku tekstowego. \\
+\hline
+{\em append} & Czy dopisywać do istniejącego drzewa (true), czy wyczyścić je (false). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_file_handler_a378db7aef81cfff0a004dd01a493fa8e}\index{BSTFileHandler@{BSTFileHandler}!saveToBinary@{saveToBinary}}
+\index{saveToBinary@{saveToBinary}!BSTFileHandler@{BSTFileHandler}}
+\doxysubsubsection{\texorpdfstring{saveToBinary()}{saveToBinary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_b_s_t_file_handler_a378db7aef81cfff0a004dd01a493fa8e} 
+void BSTFile\+Handler\+::save\+To\+Binary (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption}) const}
+
+
+
+Zapis drzewa do pliku binarnego w kolejności preorder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nazwa pliku \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_file_handler_aae5e2ecbe4cfbe1f1f37696217b56745}\index{BSTFileHandler@{BSTFileHandler}!saveToBinary@{saveToBinary}}
+\index{saveToBinary@{saveToBinary}!BSTFileHandler@{BSTFileHandler}}
+\doxysubsubsection{\texorpdfstring{saveToBinary()}{saveToBinary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_b_s_t_file_handler_aae5e2ecbe4cfbe1f1f37696217b56745} 
+void BSTFile\+Handler\+::save\+To\+Binary (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{int}]{mode}{}\end{DoxyParamCaption}) const}
+
+
+
+Zapis drzewa do pliku binarnego w wybranej kolejności. 
+
+Zapisuje drzewo do pliku binarnego w wybranej metodzie zapisu.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nazwa pliku \\
+\hline
+{\em mode} & 1=preorder, 2=inorder, 3=postorder\\
+\hline
+{\em filename} & Nazwa pliku binarnego. \\
+\hline
+{\em mode} & Metoda zapisu (1 = preorder, 2 = inorder, 3 = postorder). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_file_handler_a98e0ee44f5d1f7e27d5798db7707c7a6}\index{BSTFileHandler@{BSTFileHandler}!saveToText@{saveToText}}
+\index{saveToText@{saveToText}!BSTFileHandler@{BSTFileHandler}}
+\doxysubsubsection{\texorpdfstring{saveToText()}{saveToText()}}
+{\footnotesize\ttfamily \label{class_b_s_t_file_handler_a98e0ee44f5d1f7e27d5798db7707c7a6} 
+void BSTFile\+Handler\+::save\+To\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{int}]{method}{}\end{DoxyParamCaption}) const}
+
+
+
+Zapis drzewa do pliku tekstowego w wybranej kolejności. 
+
+Zapisuje drzewo do pliku tekstowego w wybranej kolejności.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nazwa pliku \\
+\hline
+{\em method} & 1=preorder, 2=inorder, 3=postorder\\
+\hline
+{\em filename} & Nazwa pliku tekstowego. \\
+\hline
+{\em method} & Metoda zapisu (1 = preorder, 2 = inorder, 3 = postorder). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bst__file__handler_8h}{bst\+\_\+file\+\_\+handler.\+h}}\item 
+\mbox{\hyperlink{bst__file__handler_8cpp}{bst\+\_\+file\+\_\+handler.\+cpp}}\end{DoxyCompactItemize}

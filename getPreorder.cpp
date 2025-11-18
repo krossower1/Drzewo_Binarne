@@ -12,6 +12,14 @@
 
 using namespace std;
 
+/**
+ * @brief Zwraca elementy drzewa w kolejności preorder (Root -> Left -> Right).
+ *
+ * Funkcja wykorzystuje prywatną funkcję preorder(), która rekurencyjnie
+ * przeszukuje drzewo i wypełnia wektor elementami w kolejności preorder.
+ *
+ * @return vector<int> Wektor elementów drzewa w kolejności preorder.
+ */
 vector<int> BST::getPreorder() const {
     vector<int> out;
     preorder(root, out);

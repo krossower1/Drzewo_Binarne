@@ -1,0 +1,297 @@
+\doxysection{BST Class Reference}
+\hypertarget{class_b_s_t}{}\label{class_b_s_t}\index{BST@{BST}}
+
+
+Klasa reprezentująca drzewo \doxylink{class_b_s_t}{BST} (Binary Search Tree).  
+
+
+
+
+{\ttfamily \#include $<$bst.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_s_t_abc17123a0367c3b8ad0382eeb3ad3178}{BST}} ()
+\item 
+\mbox{\hyperlink{class_b_s_t_aff9c7948fbba37844d2893b920ddc238}{\texorpdfstring{$\sim$}{\string~}\+BST}} ()
+\item 
+void \mbox{\hyperlink{class_b_s_t_ac3d513feb205f982e5e8cd7b33328170}{insert\+Key}} (int key)
+\begin{DoxyCompactList}\small\item\em Wstawia nowy klucz do drzewa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_ad232762b7dcd933d5558337bd6a85870}{remove\+Key}} (int key)
+\begin{DoxyCompactList}\small\item\em Usuwa klucz z drzewa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_a04195f4503de56d75f2c4ba88b30ba57}{clear\+Tree}} ()
+\begin{DoxyCompactList}\small\item\em Czyści całe drzewo. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{class_b_s_t_ac89304e6b817fb462115e59b4c21abf9}{get\+Path\+To}} (int key) const
+\begin{DoxyCompactList}\small\item\em Zwraca ścieżkę od korzenia do danego klucza. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{class_b_s_t_ad67d7f68e36df50487407aebbbfb9068}{get\+Preorder}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca elementy w kolejności preorder. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{class_b_s_t_a704c3563fc4b7576dbd1390878d94c03}{get\+Inorder}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca elementy w kolejności inorder. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{class_b_s_t_a29c87a46c1eda3180f65dbaed01e6566}{get\+Postorder}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca elementy w kolejności postorder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_ab5ff9ff9e71334a43d59180e66d25b89}{print\+Tree\+Graphic2}} (Node \texorpdfstring{$\ast$}{*}node, int indent=0, int indent\+Step=4) const
+\begin{DoxyCompactList}\small\item\em Rekursywne wyświetlenie drzewa w konsoli. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_s_t_a0362d7f3da7dcefd6aa6017b64523133}{print\+Tree\+Graphic}} (int indent\+Step=4) const
+\begin{DoxyCompactList}\small\item\em Wyświetlenie drzewa w konsoli. \end{DoxyCompactList}\item 
+BST\+::\+Node \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_b_s_t_adefcc1a3a428e6aafa5aa19659de230b}{get\+Root}} () const
+\begin{DoxyCompactList}\small\item\em Zwraca wskaźnik do korzenia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_b_s_t_ad416e8df9a7192509cc9458bdfa6dc16}{print\+Vector\+Traversal}} (const vector$<$ int $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Wypisuje wektor kluczy na ekran. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_b_s_t_a53fd382f468423a602e9587b57b64afe}{BSTFile\+Handler}}
+\begin{DoxyCompactList}\small\item\em Klasa przyjaciół umożliwiająca dostęp do prywatnych elementów drzewa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa reprezentująca drzewo \doxylink{class_b_s_t}{BST} (Binary Search Tree). 
+
+\label{doc-constructors}
+\Hypertarget{class_b_s_t_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_b_s_t_abc17123a0367c3b8ad0382eeb3ad3178}\index{BST@{BST}!BST@{BST}}
+\index{BST@{BST}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{BST()}{BST()}}
+{\footnotesize\ttfamily \label{class_b_s_t_abc17123a0367c3b8ad0382eeb3ad3178} 
+BST\+::\+BST (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_b_s_t_aff9c7948fbba37844d2893b920ddc238}\index{BST@{BST}!````~BST@{\texorpdfstring{$\sim$}{\string~}BST}}
+\index{````~BST@{\texorpdfstring{$\sim$}{\string~}BST}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BST()}{\string~BST()}}
+{\footnotesize\ttfamily \label{class_b_s_t_aff9c7948fbba37844d2893b920ddc238} 
+BST\+::\texorpdfstring{$\sim$}{\string~}\+BST (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_b_s_t_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_b_s_t_a04195f4503de56d75f2c4ba88b30ba57}\index{BST@{BST}!clearTree@{clearTree}}
+\index{clearTree@{clearTree}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{clearTree()}{clearTree()}}
+{\footnotesize\ttfamily \label{class_b_s_t_a04195f4503de56d75f2c4ba88b30ba57} 
+void BST\+::clear\+Tree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Czyści całe drzewo. 
+
+Usuwa całe drzewo \doxylink{class_b_s_t}{BST}.
+
+Funkcja wywołuje prywatną metodę {\ttfamily clear(node\texorpdfstring{$\ast$}{*})}, która rekurencyjnie usuwa wszystkie węzły drzewa. \Hypertarget{class_b_s_t_a704c3563fc4b7576dbd1390878d94c03}\index{BST@{BST}!getInorder@{getInorder}}
+\index{getInorder@{getInorder}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{getInorder()}{getInorder()}}
+{\footnotesize\ttfamily \label{class_b_s_t_a704c3563fc4b7576dbd1390878d94c03} 
+vector$<$ int $>$ BST\+::get\+Inorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Zwraca elementy w kolejności inorder. 
+
+Zwraca wektor kluczy w porządku inorder (L–\+K–P).
+
+Metoda wywołuje prywatną funkcję rekurencyjną inorder(), która wypełnia przekazany wektor wartościami odczytanymi w kolejności inorder.
+
+\begin{DoxyReturn}{Returns}
+vector$<$int$>$ Wektor zawierający klucze drzewa w porządku inorder. 
+\end{DoxyReturn}
+\Hypertarget{class_b_s_t_ac89304e6b817fb462115e59b4c21abf9}\index{BST@{BST}!getPathTo@{getPathTo}}
+\index{getPathTo@{getPathTo}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{getPathTo()}{getPathTo()}}
+{\footnotesize\ttfamily \label{class_b_s_t_ac89304e6b817fb462115e59b4c21abf9} 
+vector$<$ int $>$ BST\+::get\+Path\+To (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption}) const}
+
+
+
+Zwraca ścieżkę od korzenia do danego klucza. 
+
+Zwraca ścieżkę od korzenia do podanego klucza w drzewie.
+
+Funkcja wykorzystuje prywatną funkcję find\+Path(), która rekurencyjnie przeszukuje drzewo w poszukiwaniu klucza i wypełnia wektor ścieżki.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Klucz, do którego chcemy znaleźć ścieżkę. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$int$>$ Wektor zawierający kolejność kluczy od korzenia do poszukiwanego klucza. Zwraca pusty wektor, jeśli klucz nie istnieje w drzewie. 
+\end{DoxyReturn}
+\Hypertarget{class_b_s_t_a29c87a46c1eda3180f65dbaed01e6566}\index{BST@{BST}!getPostorder@{getPostorder}}
+\index{getPostorder@{getPostorder}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{getPostorder()}{getPostorder()}}
+{\footnotesize\ttfamily \label{class_b_s_t_a29c87a46c1eda3180f65dbaed01e6566} 
+vector$<$ int $>$ BST\+::get\+Postorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Zwraca elementy w kolejności postorder. 
+
+Zwraca elementy drzewa w kolejności postorder (Left -\/\texorpdfstring{$>$}{>} Right -\/\texorpdfstring{$>$}{>} Root).
+
+Funkcja wykorzystuje prywatną funkcję postorder(), która rekurencyjnie przeszukuje drzewo i wypełnia wektor elementami w kolejności postorder.
+
+\begin{DoxyReturn}{Returns}
+vector$<$int$>$ Wektor elementów drzewa w kolejności postorder. 
+\end{DoxyReturn}
+\Hypertarget{class_b_s_t_ad67d7f68e36df50487407aebbbfb9068}\index{BST@{BST}!getPreorder@{getPreorder}}
+\index{getPreorder@{getPreorder}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{getPreorder()}{getPreorder()}}
+{\footnotesize\ttfamily \label{class_b_s_t_ad67d7f68e36df50487407aebbbfb9068} 
+vector$<$ int $>$ BST\+::get\+Preorder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Zwraca elementy w kolejności preorder. 
+
+Zwraca elementy drzewa w kolejności preorder (Root -\/\texorpdfstring{$>$}{>} Left -\/\texorpdfstring{$>$}{>} Right).
+
+Funkcja wykorzystuje prywatną funkcję preorder(), która rekurencyjnie przeszukuje drzewo i wypełnia wektor elementami w kolejności preorder.
+
+\begin{DoxyReturn}{Returns}
+vector$<$int$>$ Wektor elementów drzewa w kolejności preorder. 
+\end{DoxyReturn}
+\Hypertarget{class_b_s_t_adefcc1a3a428e6aafa5aa19659de230b}\index{BST@{BST}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily \label{class_b_s_t_adefcc1a3a428e6aafa5aa19659de230b} 
+BST\+::\+Node \texorpdfstring{$\ast$}{*} BST\+::get\+Root (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwraca wskaźnik do korzenia. 
+
+\Hypertarget{class_b_s_t_ac3d513feb205f982e5e8cd7b33328170}\index{BST@{BST}!insertKey@{insertKey}}
+\index{insertKey@{insertKey}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{insertKey()}{insertKey()}}
+{\footnotesize\ttfamily \label{class_b_s_t_ac3d513feb205f982e5e8cd7b33328170} 
+void BST\+::insert\+Key (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Wstawia nowy klucz do drzewa. 
+
+Wstawia nowy klucz do drzewa \doxylink{class_b_s_t}{BST}.
+
+Funkcja wywołuje prywatną funkcję insert(), która rekurencyjnie znajduje odpowiednie miejsce w drzewie i wstawia nowy węzeł.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Klucz do wstawienia. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_a0362d7f3da7dcefd6aa6017b64523133}\index{BST@{BST}!printTreeGraphic@{printTreeGraphic}}
+\index{printTreeGraphic@{printTreeGraphic}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{printTreeGraphic()}{printTreeGraphic()}}
+{\footnotesize\ttfamily \label{class_b_s_t_a0362d7f3da7dcefd6aa6017b64523133} 
+void BST\+::print\+Tree\+Graphic (\begin{DoxyParamCaption}\item[{int}]{indent\+Step}{ = {\ttfamily 4}}\end{DoxyParamCaption}) const}
+
+
+
+Wyświetlenie drzewa w konsoli. 
+
+Wyświetla drzewo \doxylink{class_b_s_t}{BST} w formie graficznej w konsoli.
+
+Funkcja wywołuje rekurencyjną metodę print\+Tree\+Graphic2 dla korzenia drzewa. Jeśli drzewo jest puste, wyświetla odpowiedni komunikat.
+
+
+\begin{DoxyParams}{Parameters}
+{\em indent\+Step} & Ilość spacji używana do wcięć dla kolejnych poziomów drzewa. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_ab5ff9ff9e71334a43d59180e66d25b89}\index{BST@{BST}!printTreeGraphic2@{printTreeGraphic2}}
+\index{printTreeGraphic2@{printTreeGraphic2}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{printTreeGraphic2()}{printTreeGraphic2()}}
+{\footnotesize\ttfamily \label{class_b_s_t_ab5ff9ff9e71334a43d59180e66d25b89} 
+void BST\+::print\+Tree\+Graphic2 (\begin{DoxyParamCaption}\item[{Node \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{int}]{indent}{ = {\ttfamily 0}, }\item[{int}]{indent\+Step}{ = {\ttfamily 4}}\end{DoxyParamCaption}) const}
+
+
+
+Rekursywne wyświetlenie drzewa w konsoli. 
+
+Rekurencyjnie wyświetla drzewo \doxylink{class_b_s_t}{BST} w formie graficznej w konsoli.
+
+Funkcja wywołuje się rekurencyjnie dla prawego i lewego dziecka węzła, stosując wcięcia w zależności od poziomu drzewa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Wskaźnik na aktualny węzeł drzewa. \\
+\hline
+{\em indent} & Aktualny poziom wcięcia dla tego węzła. \\
+\hline
+{\em indent\+Step} & Ilość spacji dodawanych przy przechodzeniu na niższy poziom drzewa. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_ad416e8df9a7192509cc9458bdfa6dc16}\index{BST@{BST}!printVectorTraversal@{printVectorTraversal}}
+\index{printVectorTraversal@{printVectorTraversal}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{printVectorTraversal()}{printVectorTraversal()}}
+{\footnotesize\ttfamily \label{class_b_s_t_ad416e8df9a7192509cc9458bdfa6dc16} 
+void BST\+::print\+Vector\+Traversal (\begin{DoxyParamCaption}\item[{const vector$<$ int $>$ \&}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Wypisuje wektor kluczy na ekran. 
+
+Wyświetla zawartość wektora reprezentującego przegląd drzewa (preorder, inorder, postorder).
+
+Funkcja służy do wygodnego drukowania kolejności węzłów drzewa w konsoli.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Wektor kluczy drzewa do wyświetlenia. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_b_s_t_ad232762b7dcd933d5558337bd6a85870}\index{BST@{BST}!removeKey@{removeKey}}
+\index{removeKey@{removeKey}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{removeKey()}{removeKey()}}
+{\footnotesize\ttfamily \label{class_b_s_t_ad232762b7dcd933d5558337bd6a85870} 
+void BST\+::remove\+Key (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Usuwa klucz z drzewa. 
+
+Usuwa węzeł o podanym kluczu z drzewa \doxylink{class_b_s_t}{BST}.
+
+Funkcja wywołuje prywatną funkcję remove() rozpoczynając od korzenia drzewa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Klucz węzła, który ma zostać usunięty. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-related-members}
+\Hypertarget{class_b_s_t_doc-related-members}
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_b_s_t_a53fd382f468423a602e9587b57b64afe}\index{BST@{BST}!BSTFileHandler@{BSTFileHandler}}
+\index{BSTFileHandler@{BSTFileHandler}!BST@{BST}}
+\doxysubsubsection{\texorpdfstring{BSTFileHandler}{BSTFileHandler}}
+{\footnotesize\ttfamily \label{class_b_s_t_a53fd382f468423a602e9587b57b64afe} 
+friend class \mbox{\hyperlink{class_b_s_t_file_handler}{BSTFile\+Handler}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Klasa przyjaciół umożliwiająca dostęp do prywatnych elementów drzewa. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bst_8h}{bst.\+h}}\item 
+\mbox{\hyperlink{clear_tree_8cpp}{clear\+Tree.\+cpp}}\item 
+\mbox{\hyperlink{get_inorder_8cpp}{get\+Inorder.\+cpp}}\item 
+\mbox{\hyperlink{get_path_to_8cpp}{get\+Path\+To.\+cpp}}\item 
+\mbox{\hyperlink{get_postorder_8cpp}{get\+Postorder.\+cpp}}\item 
+\mbox{\hyperlink{get_preorder_8cpp}{get\+Preorder.\+cpp}}\item 
+\mbox{\hyperlink{insert_key_8cpp}{insert\+Key.\+cpp}}\item 
+\mbox{\hyperlink{print_tree_graphic_8cpp}{print\+Tree\+Graphic.\+cpp}}\item 
+\mbox{\hyperlink{print_tree_graphic2_8cpp}{print\+Tree\+Graphic2.\+cpp}}\item 
+\mbox{\hyperlink{print_vector_traversal_8cpp}{print\+Vector\+Traversal.\+cpp}}\item 
+\mbox{\hyperlink{remove_key_8cpp}{remove\+Key.\+cpp}}\end{DoxyCompactItemize}

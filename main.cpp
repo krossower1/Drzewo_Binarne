@@ -14,6 +14,16 @@
 
 using namespace std;
 
+/**
+ * @brief Główny punkt wejścia programu.
+ *
+ * Program umożliwia interaktywną obsługę drzewa BST:
+ * dodawanie/usuwanie elementów, wyszukiwanie ścieżki, wyświetlanie drzewa
+ * oraz zapis/odczyt do/z plików binarnych i tekstowych.
+ *
+ * @return int Zwraca 0 po normalnym zakończeniu programu.
+ */
+
 int main() {
     BST tree;
     BSTFileHandler fileHandler(tree);
@@ -39,7 +49,7 @@ int main() {
         cin >> choice;
         cout << "\n";
         switch (choice) {
-        case 1: {
+        case 1: { ///< Dodawanie elementu
             cout << "Podaj liczbe do dodania: ";
             int v;
             cin >> v;
@@ -47,7 +57,7 @@ int main() {
             cout << "Dodano " << v << ".\n";
             break;
         }
-        case 2: {
+        case 2: { ///< Usuwanie elementu
             cout << "Podaj liczbe do usuniecia: ";
             int v;
             cin >> v;
@@ -55,7 +65,7 @@ int main() {
             cout << "Usunieto (jesli istniala) " << v << ".\n";
             break;
         }
-        case 3: {
+        case 3: { ///< Usuwanie całego drzewa
             cout << "Usunac cale drzewo? (t/n): ";
             char c;
             cin >> c;
@@ -66,7 +76,7 @@ int main() {
             else cout << "Anulowano.\n";
             break;
         }
-        case 4: {
+        case 4: { ///< Wyszukiwanie ścieżki do elementu
             cout << "Podaj klucz do wyszukania sciezki: ";
             int v;
             cin >> v;
@@ -82,7 +92,7 @@ int main() {
             }
             break;
         }
-        case 5: {
+        case 5: { ///< Wyświetlanie drzewa w wybranej kolejności
             cout << "Wybierz metode (1=preorder,2=inorder,3=postorder): ";
             int m;
             cin >> m;
@@ -101,14 +111,14 @@ int main() {
             else cout << "Niepoprawna metoda.\n";
             break;
         }
-        case 6: {
+        case 6: { ///< Wyświetlanie drzewa graficznie
             cout << "Grafika drzewa od lewej strony.\n";
             tree.printTreeGraphic();
             break;
         }
 
         // *** NOWE OPCJE DLA PLIKÓW ***
-        case 7: {
+        case 7: { ///< Zapis do pliku binarnego
             cout << "Podaj nazwe pliku binarnego do zapisu: ";
             string fname;
             cin >> fname;
@@ -132,7 +142,7 @@ int main() {
         // *** KONIEC NOWYCH OPCJI ***
 
         // --- Wczytanie z pliku binarnego ---
-        case 8: {
+        case 8: { ///< Wczytanie z pliku binarnego
             cout << "Podaj nazwe pliku binarnego do wczytania: ";
             string fname;
             cin >> fname;
@@ -147,7 +157,7 @@ int main() {
         
             
         // --- Wczytanie z pliku tekstowego ---
-        case 9: {
+        case 9: { ///< Wczytanie z pliku tekstowego
             cout << "Podaj nazwe pliku tekstowego do wczytania: ";
             string fname;
             cin >> fname;
@@ -160,7 +170,7 @@ int main() {
         }
 
         // case 10: zapis do pliku tekstowego z wyborem metody
-        case 10: {
+        case 10: { ///< Zapis do pliku tekstowego
             cout << "Podaj nazwe pliku tekstowego do zapisu: ";
             std::string fname;
             cin >> fname;
@@ -181,7 +191,7 @@ int main() {
 }      
 
 
-        case 0: {
+        case 0: { ///< Zakończenie programu
             cout << "Koniec. \n";
             running = false;
             break;
